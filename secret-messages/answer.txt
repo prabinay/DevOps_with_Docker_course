@@ -1,0 +1,5 @@
+Commands:
+docker start <containerid>
+docker exec -it <containerid> sh
+
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'

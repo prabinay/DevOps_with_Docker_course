@@ -1,0 +1,10 @@
+#run alpine container
+docker run -it  devopsdockeruh/simple-web-service:alpine
+
+#start by its container ID
+docker start 78f1f08aa419
+
+#see size of each running containers
+docker ps --size
+
+Output:

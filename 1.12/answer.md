@@ -9,4 +9,4 @@
  4. navigate to http://localhost:5000 
 
  Output 
-    ![Output](https://github.com/prabinay/DevOps_with_Docker_course/assets/64364650/1bbbc0a5-acd6-49a0-8d1b-3749050a46c0)
+ ![Output](https://github.com/prabinay/DevOps_with_Docker_course/assets/64364650/1bbbc0a5-acd6-49a0-8d1b-3749050a46c0)

@@ -3,7 +3,7 @@
 
 1. Create a Dockerfile for the project 
 2. Build the image 
-    $ docker build -t example-frontend-app .
+       ' $ docker build -t example-frontend-app .'
 3. run the image 
     $ docker run -p 5000:5000 example-frontend-app
  4. navigate to http://localhost:5000 

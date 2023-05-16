@@ -1,0 +1,2 @@
+1. Create a dockerfile use FROM and CMD to create a brand new image that automatically runs server.
+

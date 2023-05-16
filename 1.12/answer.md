@@ -1,5 +1,5 @@
 
-# MANDATORY EXERCISE 1.12: HELLO, FRONTEND!
+## MANDATORY EXERCISE 1.12: HELLO, FRONTEND!
 
 1. Create a Dockerfile for the project 
 2. Build the image 

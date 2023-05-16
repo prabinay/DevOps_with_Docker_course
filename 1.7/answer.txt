@@ -1,0 +1,12 @@
+
+
+#create a Dockerfile
+
+#create script file as given
+
+#build image from the dockerfile
+docker build . -t helloscript
+
+#run the image
+docker run -it helloscript
+

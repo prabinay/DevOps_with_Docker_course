@@ -1,4 +1,4 @@
-## EXERCISE 2.1 Docker Compose
+## EXERCISE 2.2 
 
 1. Create a docker-compose.yml file
 2. Create a text.log file for storing logs

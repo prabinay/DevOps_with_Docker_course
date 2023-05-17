@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: node:16-alpine
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: /git-repos/material-applications/example-frontend
+        target: /app
+    ports:
+      - 5000:5000
+    environment:
+      - REACT_APP_BACKEND_URL=http://192.168.150.130:8080
+    command: sh -c "npm install --production && npm run build && npm install -g serve && serve -s -l 5000 build"
+    container_name: frontend_app
+
+  backend:
+    image: golang:1.16
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: /git-repos/material-applications/example-backend
+        target: /app
+    ports:
+      - 8080:8080
+    environment:
+      - REQUEST_ORIGIN=http://192.168.150.130:5000
+    command: sh -c "go build -o server && ./server"
+    container_name: backend_app

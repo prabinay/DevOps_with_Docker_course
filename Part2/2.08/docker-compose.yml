@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: node:16-alpine
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: /git-repos/material-applications/example-frontend
+        target: /app
+    ports:
+      - 5000:5000
+    environment:
+      - REACT_APP_BACKEND_URL=http://192.168.232.115:8080
+    command: sh -c "npm install --production && npm run build && npm install -g serve && serve -s -l 5000 build"
+    #container_name: frontend_app1
+
+  backend:
+    image: golang:1.16
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: /git-repos/material-applications/example-backend
+        target: /app
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REQUEST_ORIGIN=http://192.168.232.115:5000
+    command: sh -c "go build -o server && ./server"
+   #container_name: backend_app
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    #depends_on:
+     # - frontend
+     # - backend
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+
+
